@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Traductor Fluorescente</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #00ffcc;
+      font-family: monospace;
+      text-align: center;
+      padding: 40px;
+    }
+    textarea {
+      width: 80%;
+      height: 100px;
+      background-color: #1a1a1a;
+      color: #00ffcc;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #0d0d0d;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .output {
+      margin-top: 20px;
+      font-size: 18px;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🦤 Traductor al Idioma Fluorescente 🧪</h1>
+  <textarea id="input" placeholder="Escribí tu mensaje en español..."></textarea><br>
+  <button onclick="traducir()">Traducir</button>
+
+  <div class="output" id="resultado"></div>
+
+  <script>
+    const diccionario = {
+      'q': '1', 'w': '2', 'e': '3', 'r': '4', 't': '5', 'y': '6', 'u': '7', 'i': '8', 'o': '9', 'p': '0',
+      'a': '@', 's': '#', 'd': '€', 'f': '_', 'g': '&', 'h': '-', 'j': '+', 'k': '(', 'l': ')',
+      'z': '*', 'x': '"', 'c': "'", 'v': ':', 'b': ';', 'n': '!', 'm': '?', 'ñ': '/', ' ': ' '
+    };
+
+    function traducir() {
+      const texto = document.getElementById("input").value.toLowerCase();
+      let resultado = "";
+      for (let letra of texto) {
+        resultado += diccionario[letra] || letra;
+      }
+      document.getElementById("resultado").innerText = resultado;
+    }
+  </script>
+
+</body>
+</html>
